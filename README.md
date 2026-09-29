@@ -77,6 +77,6 @@ server:
 11. Replace the Unbound executable
 ```
 kill $(pgrep -f unbound-doh)
-mv /tmp/unbound-doh /etc/unbound/unbound
+mv /tmp/unbound-doh /usr/sbin/unbound
 /etc/init.d/unbound start
 ```
