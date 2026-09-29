@@ -22,7 +22,7 @@ Docker container for building Unbound with HTTP/2 and QUIC support for the Comfa
 
 **Requirements**
 
-* Docker
+* Docker (if you want to build with it)
 * Disk space ~2 GB (~440 MB Image + ~1.5 GB Volume)
 
 **Result**
@@ -33,7 +33,7 @@ Docker container for building Unbound with HTTP/2 and QUIC support for the Comfa
 * OpenSSL 3.5 provides the QUIC TLS API used by ngtcp2.
 
 **Steps**
-1. Install [Docker](https://docs.docker.com/engine/install/debian) (if not already installed)
+1. Install [Docker](https://docs.docker.com/engine/install/debian) (if you want to build with it and it is not already installed)
 2. Install [git](https://git-scm.com/) (if not already installed)
 3. Install Unbound on OpenWrt (if not already installed)
 ```
@@ -47,11 +47,21 @@ git clone https://github.com/nouai/unbound-builder.git
 cd unbound-builder
 chmod 777 output
 ```
-5. Build the image and run the container
-```
-docker compose build
-docker compose up
-```
+5. Build
+
+    5.A. Build the image and run the container (if you want to build with Docker. Otherwise, see 5.B)
+    ```
+    docker compose build
+    docker compose up
+    ```
+
+    5.B. Build without Docker container (as super user)
+    ```
+    chown root:root ./build.sh
+    chmod +x ./build.sh
+    ./build.sh
+    ```
+
 6. Copy `unbound-1.25.2-aarch64-static` to the target device (Comfast CF-RW632AX)
 ```
 scp -O output/unbound-1.25.2-aarch64-static root@192.168.1.1:/tmp/unbound-doh
