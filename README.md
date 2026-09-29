@@ -75,4 +75,8 @@ kill $(pgrep -f unbound-doh)
 mv /tmp/unbound-doh /etc/unbound/unbound
 /etc/init.d/unbound start
 ```
-
+11. Update Unbound directory in unbound.conf
+```
+server:
+    directory: "/etc/unbound"
+```
