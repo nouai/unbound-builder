@@ -1,4 +1,6 @@
-# Unbound Build with HTTP/2 and QUIC for Comfast CF-WR632AX
+# Unbound with HTTP/2 and QUIC for Comfast CF-WR632AX
+
+Docker container for building Unbound with HTTP/2 and QUIC support for the Comfast CF-WR632AX, including all required dependencies.
 
 **Target**
 
@@ -41,8 +43,8 @@ exit
 ```
 4. Clone the repository
 ```
-git clone https://github.com/nouai/unbound-docker.git
-cd unbound-docker
+git clone https://github.com/nouai/unbound-builder.git
+cd unbound-builder
 chmod 777 output
 ```
 5. Build the image and run the container
