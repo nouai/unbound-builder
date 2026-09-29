@@ -64,19 +64,19 @@ cd /tmp
 chown root:root unbound-doh
 chmod +x unbound-doh
 ```
-9. Test Unbound with your config
+9. Update Unbound directory in unbound.conf
+```
+server:
+    directory: "/etc/unbound"
+```
+10. Test Unbound with your config
 ```
 /etc/init.d/unbound stop
 ./unbound-doh -c /etc/unbound/unbound.conf
 ```
-10. Replace the Unbound executable
+11. Replace the Unbound executable
 ```
 kill $(pgrep -f unbound-doh)
 mv /tmp/unbound-doh /etc/unbound/unbound
 /etc/init.d/unbound start
-```
-11. Update Unbound directory in unbound.conf
-```
-server:
-    directory: "/etc/unbound"
 ```
